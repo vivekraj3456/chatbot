@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Investment Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Investment Portfolio Advisor</h1>
+        
+        <div id="chatBox" class="chat-box">
+            <div class="message bot">Welcome! How can I assist with your investments today?</div>
+
+            {% if response %}
+                <div class="message bot">{{ response }}</div>
+            {% endif %}
+        </div>
+        
+        <form id="chatForm" method="POST" action="/" class="input-area">
+            <input type="text" id="userInput" name="query" placeholder="Ask about investments..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
